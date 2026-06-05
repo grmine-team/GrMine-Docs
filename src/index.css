@@ -1,4 +1,4 @@
-@import '../../GrMine UI/grmine-ui.css';
+@import './lib/grmine-ui.css';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap');
 
 @tailwind base;
