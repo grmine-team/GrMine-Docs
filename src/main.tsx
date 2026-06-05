@@ -3,6 +3,13 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 
+// GitHub Pages SPA redirect: 404.html stores the real path in sessionStorage
+const redirect = sessionStorage.redirect
+delete sessionStorage.redirect
+if (redirect && redirect !== location.pathname) {
+  history.replaceState(null, null, redirect)
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
