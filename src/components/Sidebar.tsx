@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getProject, getDocCategories, getDocsByCategory } from '@/data/projects';
 import { useSidebarStore } from '@/stores/sidebarStore';
 

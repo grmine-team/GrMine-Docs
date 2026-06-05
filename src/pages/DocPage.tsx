@@ -11,10 +11,7 @@ const docModules = import.meta.glob<string>('/src/content/*.md', {
 
 function loadDoc(slug: string): string | null {
   const key = `/src/content/${slug}.md`;
-  const mod = docModules[key];
-  if (typeof mod === 'string') return mod;
-  if (mod && typeof mod === 'object' && 'default' in mod) return mod.default;
-  return null;
+  return docModules[key] ?? null;
 }
 
 export default function DocPage() {
