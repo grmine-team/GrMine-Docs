@@ -229,6 +229,96 @@
   color: #d19a66 !important;
 }
 
+/* ===== Demo block (interactive examples) ===== */
+
+.demo-block {
+  margin: var(--gm-space-6) 0;
+  border: 1px solid var(--gm-border);
+  border-radius: var(--gm-radius-lg);
+  overflow: hidden;
+  background-color: var(--gm-bg-elevated);
+}
+
+.demo-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gm-space-2) var(--gm-space-4);
+  background-color: var(--gm-bg-muted);
+  border-bottom: 1px solid var(--gm-border);
+  font-size: var(--gm-text-xs);
+}
+
+.demo-block__title {
+  font-weight: 600;
+  color: var(--gm-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide, 0.05em);
+}
+
+.demo-block__toggle {
+  font-size: var(--gm-text-xs);
+  font-weight: 500;
+  color: var(--gm-accent);
+  cursor: pointer;
+  padding: var(--gm-space-1) var(--gm-space-2);
+  border-radius: var(--gm-radius-sm);
+  background: none;
+  border: none;
+  transition: all var(--gm-duration-fast) var(--gm-ease);
+}
+
+.demo-block__toggle:hover {
+  background-color: var(--gm-accent-50);
+  color: var(--gm-accent-hover);
+}
+
+.demo-block__preview {
+  padding: var(--gm-space-6);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--gm-space-3);
+  min-height: 3rem;
+}
+
+.demo-block__source {
+  border-top: 1px solid var(--gm-border);
+  background-color: var(--gm-bg-muted);
+}
+
+.demo-block__source pre {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+
+.demo-block__source code {
+  display: block;
+  padding: var(--gm-space-4) !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-size: var(--gm-text-sm) !important;
+  line-height: var(--gm-leading-relaxed) !important;
+}
+
+/* Dark mode demo block */
+[data-theme="dark"] .demo-block {
+  border-color: var(--gm-border);
+  background-color: var(--gm-neutral-900);
+}
+
+[data-theme="dark"] .demo-block__header {
+  background-color: var(--gm-neutral-800);
+  border-color: var(--gm-border);
+}
+
+[data-theme="dark"] .demo-block__source {
+  background-color: var(--gm-neutral-800);
+}
+
 /* ===== App layout: fixed navbar + sticky sidebar ===== */
 
 .app-layout {
