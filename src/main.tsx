@@ -5,9 +5,11 @@ import './index.css'
 
 // GitHub Pages SPA redirect: 404.html stores the real path in sessionStorage
 const redirect = sessionStorage.getItem('redirect')
-sessionStorage.removeItem('redirect')
-if (redirect && redirect !== location.pathname) {
-  history.replaceState(null, null, redirect)
+if (redirect) {
+  sessionStorage.removeItem('redirect')
+  if (redirect !== location.pathname) {
+    history.replaceState(null, null, redirect)
+  }
 }
 
 createRoot(document.getElementById('root')!).render(
