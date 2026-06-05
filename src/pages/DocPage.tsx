@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import DocContent from '@/components/DocContent';
 import { getProject } from '@/data/projects';
 
-const docModules = import.meta.glob<string>('/src/content/*.md', {
+const docModules = import.meta.glob<string>('/src/content/**/*.md', {
   query: '?raw',
   eager: true,
 });
 
-function loadDoc(slug: string): string | null {
-  const key = `/src/content/${slug}.md`;
+function loadDoc(projectId: string, slug: string): string | null {
+  const key = `/src/content/${projectId}/${slug}.md`;
   return docModules[key] ?? null;
 }
 
@@ -25,7 +25,7 @@ export default function DocPage() {
       setContent(null);
       return;
     }
-    const doc = loadDoc(slug);
+    const doc = loadDoc(projectId!, slug);
     setContent(doc ?? '# 404\n\n未找到该文档。');
   }, [slug]);
 
