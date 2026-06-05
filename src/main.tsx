@@ -4,8 +4,8 @@ import App from './App'
 import './index.css'
 
 // GitHub Pages SPA redirect: 404.html stores the real path in sessionStorage
-const redirect = sessionStorage.redirect
-delete sessionStorage.redirect
+const redirect = sessionStorage.getItem('redirect')
+sessionStorage.removeItem('redirect')
 if (redirect && redirect !== location.pathname) {
   history.replaceState(null, null, redirect)
 }

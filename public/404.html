@@ -44,7 +44,7 @@
       }
 
       // Redirect to index.html while preserving the path via session storage
-      sessionStorage.redirect = location.pathname;
+      sessionStorage.setItem('redirect', location.pathname);
       location.replace(prefix + 'index.html');
     </script>
   </body>
