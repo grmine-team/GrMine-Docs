@@ -10,7 +10,7 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-  base: '/GrMine-Docs/',
+  base: '/',
   server: {
     host: true,
   },
