@@ -8,7 +8,7 @@ const redirect = sessionStorage.getItem('redirect')
 if (redirect) {
   sessionStorage.removeItem('redirect')
   if (redirect !== location.pathname) {
-    history.replaceState(null, null, redirect)
+    history.replaceState(null, null, redirect as string)
   }
 }
 
