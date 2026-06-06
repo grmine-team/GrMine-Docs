@@ -5,7 +5,7 @@
 ## 基础用法
 
 <div class="gm-example" style="padding:0;min-height:200px">
-  <aside class="gm-sidebar" style="height:200px">
+  <aside class="gm-sidebar">
     <div class="gm-sidebar-section">
       <div class="gm-sidebar-heading">入门</div>
       <a class="gm-sidebar-item gm-sidebar-item-active">概览</a>

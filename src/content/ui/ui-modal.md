@@ -5,7 +5,7 @@
 ## 基础用法
 
 <div class="gm-example" style="padding:0;background:var(--gm-bg-muted)">
-  <div class="gm-modal" style="position:relative;max-width:100%;animation:none">
+  <div class="gm-modal">
     <div class="gm-modal-header">
       <h3 class="gm-modal-title">确认操作</h3>
       <button class="gm-modal-close">×</button>
