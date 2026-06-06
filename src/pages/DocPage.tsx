@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import DocContent from '@/components/DocContent';
+import NotFound from '@/pages/NotFound';
 import { getProject } from '@/data/projects';
 
 const docModules = import.meta.glob<string>('/src/content/**/*.md', {
@@ -23,24 +24,32 @@ function loadDoc(projectId: string, slug: string): string | null {
 export default function DocPage() {
   const { project: projectId, slug } = useParams();
   const [content, setContent] = useState<string | null>(null);
+  const [notFound, setNotFound] = useState(false);
 
   const project = projectId ? getProject(projectId) : null;
 
   useEffect(() => {
     if (!slug) {
       setContent(null);
+      setNotFound(false);
       return;
     }
     const doc = loadDoc(projectId!, slug);
-    setContent(doc ?? '# 404\n\n未找到该文档。');
+    if (doc) {
+      setContent(doc);
+      setNotFound(false);
+    } else {
+      setContent(null);
+      setNotFound(true);
+    }
   }, [slug]);
 
   if (!project) {
-    return (
-      <div style={{ padding: 'var(--gm-space-16)', textAlign: 'center', color: 'var(--gm-fg-muted)' }}>
-        项目不存在
-      </div>
-    );
+    return <NotFound />;
+  }
+
+  if (notFound) {
+    return <NotFound />;
   }
 
   if (!slug) {
