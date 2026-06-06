@@ -2,64 +2,75 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import 'highlight.js/styles/github.css';
-import Demo from './Demo';
+import { useState, type ReactNode, type ReactElement } from 'react';
 
 interface DocContentProps {
   content: string;
 }
 
-/**
- * Extract HTML code blocks from markdown content.
- * Returns array of segments: { type: 'md', text } | { type: 'demo', code }
- */
-function parseSegments(content: string): { type: 'md' | 'demo'; text?: string; code?: string }[] {
-  const segments: { type: 'md' | 'demo'; text?: string; code?: string }[] = [];
-  // Match ```html code blocks, handling both LF and CRLF line endings
-  const regex = /```html\s*\r?\n([\s\S]*?)\r?```/g;
-  let lastIndex = 0;
-  let match;
+function extractText(children: ReactNode): string {
+  if (typeof children === 'string') return children;
+  if (typeof children === 'number') return String(children);
+  if (!children) return '';
+  if (Array.isArray(children)) return children.map(extractText).join('');
+  if (typeof children === 'object' && 'props' in (children as object)) {
+    return extractText((children as ReactElement).props.children);
+  }
+  return '';
+}
 
-  while ((match = regex.exec(content)) !== null) {
-    // Push markdown segment before this code block
-    if (match.index > lastIndex) {
-      segments.push({ type: 'md', text: content.slice(lastIndex, match.index) });
-    }
-    // Push demo segment
-    segments.push({ type: 'demo', code: match[1] });
-    lastIndex = regex.lastIndex;
+function decodeHtmlEntities(text: string): string {
+  if (typeof document === 'undefined') return text;
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = text;
+  return textarea.value;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function ExamplePre(props: any) {
+  const { children, ...rest } = props;
+  const [showCode, setShowCode] = useState(true);
+
+  const codeEl = children as ReactElement | undefined;
+  const className: string = codeEl?.props?.className || '';
+  const isHtml = className.includes('language-html');
+
+  if (!isHtml) {
+    return <pre {...rest}>{children}</pre>;
   }
 
-  // Push remaining markdown
-  if (lastIndex < content.length) {
-    segments.push({ type: 'md', text: content.slice(lastIndex) });
-  }
+  const rawText = decodeHtmlEntities(extractText(children));
 
-  // If no html code blocks found, return entire content as md
-  if (segments.length === 0) {
-    segments.push({ type: 'md', text: content });
-  }
-
-  return segments;
+  return (
+    <div className="doc-example">
+      <div className="doc-example-preview" dangerouslySetInnerHTML={{ __html: rawText }} />
+      <div className="doc-example-toolbar">
+        <button
+          className="gm-btn gm-btn-ghost gm-btn-sm"
+          onClick={() => setShowCode((s) => !s)}
+        >
+          {showCode ? '收起代码' : '展开代码'}
+        </button>
+      </div>
+      {showCode && (
+        <div className="doc-example-source">
+          <pre>{children}</pre>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function DocContent({ content }: DocContentProps) {
-  const segments = parseSegments(content);
-
   return (
     <div className="doc-content gm-prose">
-      {segments.map((seg, i) =>
-        seg.type === 'demo' ? (
-          <Demo key={i} code={seg.code!.replace(/\r?\n$/, '')} />
-        ) : (
-          <ReactMarkdown
-            key={i}
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight]}
-          >
-            {seg.text}
-          </ReactMarkdown>
-        )
-      )}
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeHighlight]}
+        components={{ pre: ExamplePre }}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   );
 }

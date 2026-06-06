@@ -5,27 +5,67 @@
 ## 基础用法
 
 ```html
-<table class="gm-table">
-  <thead>
-    <tr>
-      <th>姓名</th>
-      <th>角色</th>
-      <th>状态</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>张三</td>
-      <td>管理员</td>
-      <td><span class="gm-badge gm-badge--success">活跃</span></td>
-    </tr>
-    <tr>
-      <td>李四</td>
-      <td>编辑</td>
-      <td><span class="gm-badge gm-badge--neutral">离线</span></td>
-    </tr>
-  </tbody>
-</table>
+<div class="gm-table-wrapper">
+  <table class="gm-table">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>角色</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>张三</td>
+        <td>管理员</td>
+        <td><span class="gm-badge gm-badge-success">活跃</span></td>
+      </tr>
+      <tr>
+        <td>李四</td>
+        <td>编辑</td>
+        <td><span class="gm-badge gm-badge-default">离线</span></td>
+      </tr>
+      <tr>
+        <td>王五</td>
+        <td>访客</td>
+        <td><span class="gm-badge gm-badge-warning">待审核</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+## 斑马纹表格
+
+```html
+<div class="gm-table-wrapper">
+  <table class="gm-table gm-table-striped">
+    <thead>
+      <tr>
+        <th>项目</th>
+        <th>进度</th>
+        <th>负责人</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>前端重构</td>
+        <td>80%</td>
+        <td>张三</td>
+      </tr>
+      <tr>
+        <td>API 优化</td>
+        <td>45%</td>
+        <td>李四</td>
+      </tr>
+      <tr>
+        <td>文档编写</td>
+        <td>20%</td>
+        <td>王五</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 ```
 
 ## 变体
@@ -33,39 +73,8 @@
 | 类名 | 说明 |
 |------|------|
 | `gm-table` | 默认表格，带水平分割线 |
-| `gm-table--bordered` | 带完整边框的表格 |
-| `gm-table--striped` | 斑马纹表格，交替行背景 |
-| `gm-table--compact` | 紧凑表格，减小行高 |
-
-## 条纹表格
-
-```html
-<table class="gm-table gm-table--striped">
-  <!-- ... -->
-</table>
-```
-
-## 表格尺寸
-
-| 修饰符 | 说明 |
-|--------|------|
-| `gm-table--compact` | 紧凑模式，行高减小 |
-
-## 可排序表头
-
-```html
-<th class="gm-table__sort">姓名</th>
-<th class="gm-table__sort gm-table__sort--asc">角色</th>
-<th class="gm-table__sort gm-table__sort--desc">状态</th>
-```
-
-## 子元素
-
-| 类名 | 说明 |
-|------|------|
-| `gm-table__sort` | 可排序表头 |
-| `gm-table__sort--asc` | 升序排列 |
-| `gm-table__sort--desc` | 降序排列 |
+| `gm-table-striped` | 斑马纹表格，交替行背景 |
+| `gm-table-wrapper` | 表格外层容器，提供横向滚动 |
 
 ## 暗色模式
 

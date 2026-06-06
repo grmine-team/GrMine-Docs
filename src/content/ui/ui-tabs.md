@@ -6,13 +6,22 @@
 
 ```html
 <div class="gm-tabs">
-  <div class="gm-tabs__list">
-    <button class="gm-tabs__tab gm-tabs__tab--active">概览</button>
-    <button class="gm-tabs__tab">详情</button>
-    <button class="gm-tabs__tab">设置</button>
+  <div class="gm-tabs-list">
+    <button class="gm-tab gm-tab-active">概览</button>
+    <button class="gm-tab">详情</button>
+    <button class="gm-tab">设置</button>
   </div>
-  <div class="gm-tabs__panel">
-    当前标签页的内容
+</div>
+```
+
+## 胶囊样式
+
+```html
+<div class="gm-tabs gm-tabs-pills">
+  <div class="gm-tabs-list">
+    <button class="gm-tab gm-tab-active">日</button>
+    <button class="gm-tab">周</button>
+    <button class="gm-tab">月</button>
   </div>
 </div>
 ```
@@ -22,36 +31,16 @@
 | 类名 | 说明 |
 |------|------|
 | `gm-tabs` | 默认标签页，底部下划线指示 |
-| `gm-tabs--pills` | 胶囊标签页，激活项带背景色 |
-| `gm-tabs--bordered` | 边框标签页，带顶部边框 |
-
-## 胶囊样式
-
-```html
-<div class="gm-tabs gm-tabs--pills">
-  <div class="gm-tabs__list">
-    <button class="gm-tabs__tab gm-tabs__tab--active">日</button>
-    <button class="gm-tabs__tab">周</button>
-    <button class="gm-tabs__tab">月</button>
-  </div>
-</div>
-```
+| `gm-tabs-pills` | 胶囊标签页，激活项带背景色 |
 
 ## 子元素
 
 | 类名 | 说明 |
 |------|------|
-| `gm-tabs__list` | 标签列表容器 |
-| `gm-tabs__tab` | 单个标签 |
-| `gm-tabs__tab--active` | 激活标签 |
-| `gm-tabs__tab--disabled` | 禁用标签 |
-| `gm-tabs__panel` | 内容面板 |
-
-## 禁用标签
-
-```html
-<button class="gm-tabs__tab gm-tabs__tab--disabled" disabled>不可用</button>
-```
+| `gm-tabs-list` | 标签列表容器 |
+| `gm-tab` | 单个标签 |
+| `gm-tab-active` | 激活标签 |
+| `gm-tab-panel` | 内容面板 |
 
 ## 暗色模式
 

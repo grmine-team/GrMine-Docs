@@ -6,11 +6,22 @@
 
 ```html
 <div class="gm-card">
-  <div class="gm-card__header">
-    <h3 class="gm-card__title">卡片标题</h3>
+  <div class="gm-card-body">
+    这是一个基础卡片，仅包含内容区域。
   </div>
-  <div class="gm-card__body">
-    卡片正文内容。
+</div>
+```
+
+## 带标题和描述
+
+```html
+<div class="gm-card">
+  <div class="gm-card-header">
+    <div class="gm-card-title">卡片标题</div>
+    <div class="gm-card-desc">辅助说明文字</div>
+  </div>
+  <div class="gm-card-body">
+    卡片正文内容区域，可以放置任意内容。
   </div>
 </div>
 ```
@@ -19,39 +30,43 @@
 
 ```html
 <div class="gm-card">
-  <div class="gm-card__header">
-    <h3 class="gm-card__title">卡片标题</h3>
-    <span class="gm-card__subtitle">辅助信息</span>
+  <div class="gm-card-header">
+    <div class="gm-card-title">确认操作</div>
   </div>
-  <div class="gm-card__body">
-    内容区域
+  <div class="gm-card-body">
+    确定要执行此操作吗？此操作不可撤销。
   </div>
-  <div class="gm-card__footer">
-    <button class="gm-btn gm-btn--sm gm-btn--primary">确认</button>
-    <button class="gm-btn gm-btn--sm gm-btn--ghost">取消</button>
+  <hr class="gm-card-separator" />
+  <div class="gm-card-footer">
+    <button class="gm-btn gm-btn-sm gm-btn-ghost">取消</button>
+    <button class="gm-btn gm-btn-sm gm-btn-primary">确认</button>
   </div>
 </div>
 ```
 
-## 变体
+## 可交互卡片
 
-| 类名 | 说明 |
-|------|------|
-| `gm-card` | 默认卡片，白色背景 + 微阴影 |
-| `gm-card--bordered` | 边框卡片，无阴影 |
-| `gm-card--flat` | 扁平卡片，无边框无阴影 |
+```html
+<div class="gm-card gm-card-interactive">
+  <div class="gm-card-body">
+    悬停此卡片查看交互效果，适合用作可点击的列表项。
+  </div>
+</div>
+```
 
 ## 子元素
 
 | 类名 | 说明 |
 |------|------|
-| `gm-card__header` | 头部区域 |
-| `gm-card__title` | 标题文字 |
-| `gm-card__subtitle` | 副标题 |
-| `gm-card__body` | 内容区域 |
-| `gm-card__footer` | 底部操作区 |
-| `gm-card__media` | 媒体区域（图片等） |
+| `gm-card` | 卡片容器 |
+| `gm-card-header` | 头部区域 |
+| `gm-card-title` | 标题文字 |
+| `gm-card-desc` | 描述文字 |
+| `gm-card-body` | 内容区域 |
+| `gm-card-footer` | 底部操作区 |
+| `gm-card-separator` | 分割线 |
+| `gm-card-interactive` | 可交互卡片（悬停效果） |
 
 ## 暗色模式
 
-暗色模式下卡片背景切换为深灰色（`--gm-neutral-800`），边框与阴影自动适配。
+暗色模式下卡片背景切换为深灰色，边框与阴影自动适配。

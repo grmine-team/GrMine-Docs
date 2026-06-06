@@ -2,25 +2,20 @@
 
 GrMine UI 的排版系统追求清晰层级与舒适阅读体验。
 
-## 字体族
-
-| 用途 | 字体 | CSS 变量 |
-|------|------|----------|
-| 标题 | Outfit | `--gm-font-heading` |
-| 正文 | IBM Plex Sans | `--gm-font-body` |
-| 代码 | JetBrains Mono | `--gm-font-mono` |
-
-字体栈定义：
-
-```css
-:root {
-  --gm-font-heading: 'Outfit', system-ui, sans-serif;
-  --gm-font-body: 'IBM Plex Sans', system-ui, sans-serif;
-  --gm-font-mono: 'JetBrains Mono', monospace;
-}
-```
-
 ## 字号层级
+
+```html
+<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div style="font-size: var(--gm-text-4xl); font-weight: 600; font-family: var(--gm-font-heading);">展示标题 4xl</div>
+  <div style="font-size: var(--gm-text-3xl); font-weight: 600; font-family: var(--gm-font-heading);">大标题 3xl</div>
+  <div style="font-size: var(--gm-text-2xl); font-weight: 600; font-family: var(--gm-font-heading);">页面标题 2xl</div>
+  <div style="font-size: var(--gm-text-xl); font-weight: 600; font-family: var(--gm-font-heading);">区块标题 xl</div>
+  <div style="font-size: var(--gm-text-lg); font-weight: 600; font-family: var(--gm-font-heading);">小标题 lg</div>
+  <div style="font-size: var(--gm-text-base);">正文 base</div>
+  <div style="font-size: var(--gm-text-sm); color: var(--gm-fg-muted);">次要文字 sm</div>
+  <div style="font-size: var(--gm-text-xs); color: var(--gm-fg-subtle);">辅助标注 xs</div>
+</div>
+```
 
 | 变量 | 大小 | 用途 |
 |------|------|------|
@@ -32,6 +27,22 @@ GrMine UI 的排版系统追求清晰层级与舒适阅读体验。
 | `--gm-text-2xl` | 1.5rem | 页面标题 |
 | `--gm-text-3xl` | 1.875rem | 大标题 |
 | `--gm-text-4xl` | 2.25rem | 展示标题 |
+
+## 字体族
+
+| 用途 | 字体 | CSS 变量 |
+|------|------|----------|
+| 标题 | Outfit | `--gm-font-heading` |
+| 正文 | IBM Plex Sans | `--gm-font-sans` |
+| 代码 | JetBrains Mono | `--gm-font-mono` |
+
+```html
+<div style="display: flex; flex-direction: column; gap: 8px;">
+  <div style="font-family: var(--gm-font-heading); font-size: var(--gm-text-xl); font-weight: 600;">Outfit — 标题字体</div>
+  <div style="font-family: var(--gm-font-sans); font-size: var(--gm-text-base);">IBM Plex Sans — 正文字体</div>
+  <div style="font-family: var(--gm-font-mono); font-size: var(--gm-text-sm); background: var(--gm-bg-muted); padding: 8px 12px; border-radius: 6px;">JetBrains Mono — 代码字体</div>
+</div>
+```
 
 ## 行高
 
@@ -52,7 +63,7 @@ GrMine UI 的排版系统追求清晰层级与舒适阅读体验。
 ## 使用示例
 
 ```html
-<h1 class="gm-heading gm-text-3xl">页面标题</h1>
-<p class="gm-body gm-text-base">正文内容</p>
-<code class="gm-code gm-text-sm">const x = 1;</code>
+<h1 class="gm-h1">页面标题</h1>
+<p class="gm-text-base">正文内容使用基础字号和正常行高。</p>
+<code class="gm-font-mono gm-text-sm" style="background: var(--gm-bg-muted); padding: 2px 6px; border-radius: 4px;">const x = 1;</code>
 ```

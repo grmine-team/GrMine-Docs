@@ -5,45 +5,41 @@
 ## 基础用法
 
 ```html
-<span class="gm-tooltip" data-tooltip="这是一条提示">
-  悬停查看
-</span>
+<div class="gm-tooltip-wrapper">
+  <button class="gm-btn gm-btn-secondary">悬停查看</button>
+  <span class="gm-tooltip">这是一条提示信息</span>
+</div>
 ```
 
-## 方向
+## 不同触发元素
 
 ```html
-<span class="gm-tooltip gm-tooltip--top" data-tooltip="上方提示">上</span>
-<span class="gm-tooltip gm-tooltip--bottom" data-tooltip="下方提示">下</span>
-<span class="gm-tooltip gm-tooltip--left" data-tooltip="左侧提示">左</span>
-<span class="gm-tooltip gm-tooltip--right" data-tooltip="右侧提示">右</span>
+<div style="display: flex; gap: 12px; align-items: center;">
+  <div class="gm-tooltip-wrapper">
+    <button class="gm-btn gm-btn-primary">按钮提示</button>
+    <span class="gm-tooltip">按钮操作说明</span>
+  </div>
+  <div class="gm-tooltip-wrapper">
+    <span style="text-decoration: underline; cursor: help;">文字提示</span>
+    <span class="gm-tooltip">文字的补充说明</span>
+  </div>
+</div>
 ```
 
-| 修饰符 | 说明 |
-|--------|------|
-| `gm-tooltip--top` | 上方显示（默认） |
-| `gm-tooltip--bottom` | 下方显示 |
-| `gm-tooltip--left` | 左侧显示 |
-| `gm-tooltip--right` | 右侧显示 |
+## 子元素
 
-## 使用方式
-
-Tooltip 通过 `data-tooltip` 属性定义提示内容，悬停时自动显示：
-
-```html
-<button class="gm-btn gm-btn--icon gm-tooltip gm-tooltip--top"
-        data-tooltip="新建项目">
-  <span class="gm-icon gm-icon--plus"></span>
-</button>
-```
+| 类名 | 说明 |
+|------|------|
+| `gm-tooltip-wrapper` | 包裹容器，需设置 position: relative |
+| `gm-tooltip` | 提示框，默认在上方显示 |
 
 ## 设计细节
 
 - 提示框出现时有微妙的淡入动画
-- 提示文字使用 `--gm-text-sm` 字号
+- 提示文字使用小字号
 - 箭头指向触发元素
-- 提示框最大宽度 240px，超出自动换行
+- 悬停 `.gm-tooltip-wrapper` 时自动显示 `.gm-tooltip`
 
 ## 暗色模式
 
-暗色模式下提示框背景使用 `--gm-neutral-700`，文字为浅色，与亮色模式形成反转。
+暗色模式下提示框背景使用深灰色，文字为浅色。

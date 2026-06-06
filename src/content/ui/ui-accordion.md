@@ -6,55 +6,50 @@
 
 ```html
 <div class="gm-accordion">
-  <details class="gm-accordion__item">
-    <summary class="gm-accordion__header">什么是 GrMine UI？</summary>
-    <div class="gm-accordion__body">
-      GrMine UI 是一款追求精致极简的 CSS 组件库。
+  <div class="gm-accordion-item">
+    <button class="gm-accordion-trigger">
+      什么是 GrMine UI？
+      <span class="gm-accordion-icon">▼</span>
+    </button>
+    <div class="gm-accordion-content">
+      GrMine UI 是一款追求精致极简的 CSS 组件库，无需 JavaScript 依赖。
     </div>
-  </details>
-  <details class="gm-accordion__item" open>
-    <summary class="gm-accordion__header">如何安装？</summary>
-    <div class="gm-accordion__body">
+  </div>
+  <div class="gm-accordion-item gm-accordion-item-open">
+    <button class="gm-accordion-trigger">
+      如何安装？
+      <span class="gm-accordion-icon">▼</span>
+    </button>
+    <div class="gm-accordion-content">
       通过 npm install grmine-ui 或 CDN 引入即可。
     </div>
-  </details>
+  </div>
+  <div class="gm-accordion-item">
+    <button class="gm-accordion-trigger">
+      支持暗色模式吗？
+      <span class="gm-accordion-icon">▼</span>
+    </button>
+    <div class="gm-accordion-content">
+      支持，在根元素添加 data-theme="dark" 即可切换。
+    </div>
+  </div>
 </div>
 ```
-
-## 变体
-
-| 类名 | 说明 |
-|------|------|
-| `gm-accordion` | 默认手风琴 |
-| `gm-accordion--bordered` | 带边框的手风琴 |
-| `gm-accordion--separated` | 分离样式，每项独立卡片 |
 
 ## 子元素
 
 | 类名 | 说明 |
 |------|------|
-| `gm-accordion__item` | 单个折叠项 |
-| `gm-accordion__header` | 折叠项头部（可点击） |
-| `gm-accordion__body` | 折叠项内容 |
-
-## 分离样式
-
-```html
-<div class="gm-accordion gm-accordion--separated">
-  <details class="gm-accordion__item">
-    <summary class="gm-accordion__header">问题一</summary>
-    <div class="gm-accordion__body">答案一</div>
-  </details>
-  <details class="gm-accordion__item">
-    <summary class="gm-accordion__header">问题二</summary>
-    <div class="gm-accordion__body">答案二</div>
-  </details>
-</div>
-```
+| `gm-accordion` | 手风琴容器 |
+| `gm-accordion-item` | 单个折叠项 |
+| `gm-accordion-item-open` | 展开状态 |
+| `gm-accordion-trigger` | 折叠项头部（可点击） |
+| `gm-accordion-icon` | 展开指示图标 |
+| `gm-accordion-content` | 折叠项内容 |
 
 ## 注意事项
 
-使用原生 `<details>` / `<summary>` 元素，无需 JavaScript 即可工作。展开状态通过 `open` 属性控制。
+展开状态通过 `gm-accordion-item-open` 类名控制，图标会自动旋转 180 度。
 
 ## 暗色模式
 
