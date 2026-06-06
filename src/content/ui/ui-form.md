@@ -4,18 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example">
-  <div class="gm-form-group">
-    <label class="gm-label">用户名</label>
-    <input class="gm-input" type="text" placeholder="请输入用户名" />
-  </div>
-  <div class="gm-form-group">
-    <label class="gm-label">密码</label>
-    <input class="gm-input" type="password" placeholder="请输入密码" />
-  </div>
-  <button class="gm-btn gm-btn-primary" type="submit">提交</button>
-</div>
-
 ```html
 <div class="gm-form-group">
   <label class="gm-label">用户名</label>
@@ -30,14 +18,6 @@
 
 ## 输入框变体
 
-<div class="gm-example">
-  <input class="gm-input" placeholder="默认输入框" />
-  <input class="gm-input gm-input-sm" placeholder="小尺寸" />
-  <input class="gm-input gm-input-lg" placeholder="大尺寸" />
-  <input class="gm-input gm-input-error" placeholder="错误状态" />
-  <input class="gm-input" disabled placeholder="禁用状态" />
-</div>
-
 ```html
 <input class="gm-input" placeholder="默认输入框" />
 <input class="gm-input gm-input-sm" placeholder="小尺寸" />
@@ -47,19 +27,6 @@
 ```
 
 ## 辅助文字与错误提示
-
-<div class="gm-example">
-  <div class="gm-form-group">
-    <label class="gm-label">邮箱</label>
-    <input class="gm-input gm-input-error" type="email" placeholder="example@mail.com" />
-    <span class="gm-error-text">请输入有效的邮箱地址</span>
-  </div>
-  <div class="gm-form-group">
-    <label class="gm-label">昵称</label>
-    <input class="gm-input" type="text" placeholder="请输入昵称" />
-    <span class="gm-hint">2-20 个字符</span>
-  </div>
-</div>
 
 ```html
 <div class="gm-form-group">
@@ -75,18 +42,6 @@
 ```
 
 ## 选择控件
-
-<div class="gm-example">
-  <select class="gm-select">
-    <option>选项一</option>
-    <option>选项二</option>
-    <option>选项三</option>
-  </select>
-  <label class="gm-checkbox"><input type="checkbox" checked /><span>同意条款</span></label>
-  <label class="gm-radio"><input type="radio" name="opt" checked /><span>选项 A</span></label>
-  <label class="gm-radio"><input type="radio" name="opt" /><span>选项 B</span></label>
-  <label class="gm-switch"><input type="checkbox" checked /><span>启用通知</span></label>
-</div>
 
 ```html
 <select class="gm-select">
@@ -111,10 +66,6 @@
 ```
 
 ## 文本域
-
-<div class="gm-example">
-  <textarea class="gm-textarea" placeholder="请输入内容..."></textarea>
-</div>
 
 ```html
 <textarea class="gm-textarea" placeholder="请输入内容..."></textarea>

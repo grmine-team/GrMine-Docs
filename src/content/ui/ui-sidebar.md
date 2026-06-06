@@ -4,21 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example" style="padding:0;min-height:200px">
-  <aside class="gm-sidebar">
-    <div class="gm-sidebar-section">
-      <div class="gm-sidebar-heading">入门</div>
-      <a class="gm-sidebar-item gm-sidebar-item-active">概览</a>
-      <a class="gm-sidebar-item">安装</a>
-    </div>
-    <div class="gm-sidebar-section">
-      <div class="gm-sidebar-heading">组件</div>
-      <a class="gm-sidebar-item">按钮</a>
-      <a class="gm-sidebar-item">卡片</a>
-    </div>
-  </aside>
-</div>
-
 ```html
 <aside class="gm-sidebar">
   <div class="gm-sidebar-section">

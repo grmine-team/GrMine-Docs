@@ -4,13 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example">
-  <span class="gm-tooltip-wrapper" style="margin:2rem;display:inline-flex">
-    悬停查看
-    <span class="gm-tooltip">这是一条提示</span>
-  </span>
-</div>
-
 ```html
 <span class="gm-tooltip-wrapper">
   悬停查看
@@ -19,13 +12,6 @@
 ```
 
 ## 搭配按钮
-
-<div class="gm-example">
-  <span class="gm-tooltip-wrapper">
-    <button class="gm-btn gm-btn-icon gm-btn-primary">+</button>
-    <span class="gm-tooltip">新建项目</span>
-  </span>
-</div>
 
 ```html
 <span class="gm-tooltip-wrapper">

@@ -4,20 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example" style="padding:0">
-  <nav class="gm-navbar">
-    <div class="gm-navbar-brand">GrMine</div>
-    <div class="gm-navbar-nav">
-      <a class="gm-navbar-item gm-navbar-item-active">首页</a>
-      <a class="gm-navbar-item">文档</a>
-      <a class="gm-navbar-item">关于</a>
-    </div>
-    <div class="gm-navbar-actions">
-      <button class="gm-btn gm-btn-sm gm-btn-primary">登录</button>
-    </div>
-  </nav>
-</div>
-
 ```html
 <nav class="gm-navbar">
   <div class="gm-navbar-brand">GrMine</div>

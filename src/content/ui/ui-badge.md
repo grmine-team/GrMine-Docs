@@ -4,15 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example">
-  <span class="gm-badge gm-badge-default">默认</span>
-  <span class="gm-badge gm-badge-primary">主要</span>
-  <span class="gm-badge gm-badge-success">成功</span>
-  <span class="gm-badge gm-badge-warning">警告</span>
-  <span class="gm-badge gm-badge-danger">危险</span>
-  <span class="gm-badge gm-badge-info">信息</span>
-</div>
-
 ```html
 <span class="gm-badge gm-badge-default">默认</span>
 <span class="gm-badge gm-badge-primary">主要</span>
@@ -35,11 +26,6 @@
 
 ## 圆点徽标
 
-<div class="gm-example">
-  <span class="gm-badge gm-badge-success"><span class="gm-badge-dot"></span>在线</span>
-  <span class="gm-badge gm-badge-danger"><span class="gm-badge-dot"></span>离线</span>
-</div>
-
 ```html
 <span class="gm-badge gm-badge-success">
   <span class="gm-badge-dot"></span>在线
@@ -50,11 +36,6 @@
 ```
 
 ## 标签（可移除）
-
-<div class="gm-example">
-  <span class="gm-tag">React</span>
-  <span class="gm-tag">TypeScript <span class="gm-tag-remove">×</span></span>
-</div>
 
 ```html
 <span class="gm-tag">React</span>

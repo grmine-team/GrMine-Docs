@@ -4,14 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example">
-  <button class="gm-btn">默认按钮</button>
-  <button class="gm-btn gm-btn-primary">主要按钮</button>
-  <button class="gm-btn gm-btn-secondary">次要按钮</button>
-  <button class="gm-btn gm-btn-ghost">幽灵按钮</button>
-  <button class="gm-btn gm-btn-danger">危险按钮</button>
-</div>
-
 ```html
 <button class="gm-btn">默认按钮</button>
 <button class="gm-btn gm-btn-primary">主要按钮</button>
@@ -32,12 +24,6 @@
 
 ## 尺寸
 
-<div class="gm-example">
-  <button class="gm-btn gm-btn-sm">小按钮</button>
-  <button class="gm-btn">默认尺寸</button>
-  <button class="gm-btn gm-btn-lg">大按钮</button>
-</div>
-
 ```html
 <button class="gm-btn gm-btn-sm">小按钮</button>
 <button class="gm-btn">默认尺寸</button>
@@ -51,20 +37,11 @@
 
 ## 状态
 
-<div class="gm-example">
-  <button class="gm-btn" disabled>禁用状态</button>
-</div>
-
 ```html
 <button class="gm-btn" disabled>禁用状态</button>
 ```
 
 ## 图标按钮
-
-<div class="gm-example">
-  <button class="gm-btn gm-btn-icon gm-btn-primary">+</button>
-  <button class="gm-btn gm-btn-icon gm-btn-ghost">×</button>
-</div>
 
 ```html
 <button class="gm-btn gm-btn-icon gm-btn-primary">+</button>

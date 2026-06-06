@@ -1,7 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
 import 'highlight.js/styles/github.css';
 
 interface DocContentProps {
@@ -11,7 +10,7 @@ interface DocContentProps {
 export default function DocContent({ content }: DocContentProps) {
   return (
     <div className="doc-content gm-prose">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeHighlight]}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
         {content}
       </ReactMarkdown>
     </div>

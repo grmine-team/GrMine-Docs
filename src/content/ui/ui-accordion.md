@@ -4,29 +4,6 @@
 
 ## 基础用法
 
-<div class="gm-example">
-  <div class="gm-accordion">
-    <div class="gm-accordion-item">
-      <button class="gm-accordion-trigger">
-        什么是 GrMine UI？
-        <span class="gm-accordion-icon">▼</span>
-      </button>
-      <div class="gm-accordion-content">
-        GrMine UI 是一款追求精致极简的 CSS 组件库。
-      </div>
-    </div>
-    <div class="gm-accordion-item gm-accordion-item-open">
-      <button class="gm-accordion-trigger">
-        如何安装？
-        <span class="gm-accordion-icon">▼</span>
-      </button>
-      <div class="gm-accordion-content">
-        通过 npm install grmine-ui 或 CDN 引入即可。
-      </div>
-    </div>
-  </div>
-</div>
-
 ```html
 <div class="gm-accordion">
   <div class="gm-accordion-item">
