@@ -4,41 +4,49 @@
 
 ## 基础用法
 
-```html
-<div class="gm-tooltip-wrapper">
-  <button class="gm-btn gm-btn-secondary">悬停查看</button>
-  <span class="gm-tooltip">这是一条提示信息</span>
+<div class="gm-example">
+  <span class="gm-tooltip-wrapper" style="margin:2rem;display:inline-flex">
+    悬停查看
+    <span class="gm-tooltip">这是一条提示</span>
+  </span>
 </div>
+
+```html
+<span class="gm-tooltip-wrapper">
+  悬停查看
+  <span class="gm-tooltip">这是一条提示</span>
+</span>
 ```
 
-## 不同触发元素
+## 搭配按钮
+
+<div class="gm-example">
+  <span class="gm-tooltip-wrapper">
+    <button class="gm-btn gm-btn-icon gm-btn-primary">+</button>
+    <span class="gm-tooltip">新建项目</span>
+  </span>
+</div>
 
 ```html
-<div style="display: flex; gap: 12px; align-items: center;">
-  <div class="gm-tooltip-wrapper">
-    <button class="gm-btn gm-btn-primary">按钮提示</button>
-    <span class="gm-tooltip">按钮操作说明</span>
-  </div>
-  <div class="gm-tooltip-wrapper">
-    <span style="text-decoration: underline; cursor: help;">文字提示</span>
-    <span class="gm-tooltip">文字的补充说明</span>
-  </div>
-</div>
+<span class="gm-tooltip-wrapper">
+  <button class="gm-btn gm-btn-icon gm-btn-primary">+</button>
+  <span class="gm-tooltip">新建项目</span>
+</span>
 ```
 
 ## 子元素
 
 | 类名 | 说明 |
 |------|------|
-| `gm-tooltip-wrapper` | 包裹容器，需设置 position: relative |
-| `gm-tooltip` | 提示框，默认在上方显示 |
+| `gm-tooltip-wrapper` | 包裹容器，需设为 `inline-flex` |
+| `gm-tooltip` | 提示框，默认在上方居中显示 |
 
 ## 设计细节
 
+- 提示框悬停时自动显示（通过 CSS `:hover` 控制）
 - 提示框出现时有微妙的淡入动画
-- 提示文字使用小字号
 - 箭头指向触发元素
-- 悬停 `.gm-tooltip-wrapper` 时自动显示 `.gm-tooltip`
+- 提示框最大宽度 240px，超出自动换行
 
 ## 暗色模式
 

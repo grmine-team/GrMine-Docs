@@ -4,29 +4,32 @@
 
 ## 基础用法
 
-```html
-<aside class="gm-sidebar" style="height: 200px;">
-  <a class="gm-sidebar-item gm-sidebar-item-active">概览</a>
-  <a class="gm-sidebar-item">组件</a>
-  <a class="gm-sidebar-item">主题</a>
-  <a class="gm-sidebar-item">设置</a>
-</aside>
-```
+<div class="gm-example" style="padding:0;min-height:200px">
+  <aside class="gm-sidebar" style="height:200px">
+    <div class="gm-sidebar-section">
+      <div class="gm-sidebar-heading">入门</div>
+      <a class="gm-sidebar-item gm-sidebar-item-active">概览</a>
+      <a class="gm-sidebar-item">安装</a>
+    </div>
+    <div class="gm-sidebar-section">
+      <div class="gm-sidebar-heading">组件</div>
+      <a class="gm-sidebar-item">按钮</a>
+      <a class="gm-sidebar-item">卡片</a>
+    </div>
+  </aside>
+</div>
 
-## 带分组
-
 ```html
-<aside class="gm-sidebar" style="height: 280px;">
+<aside class="gm-sidebar">
   <div class="gm-sidebar-section">
     <div class="gm-sidebar-heading">入门</div>
-    <a class="gm-sidebar-item gm-sidebar-item-active">快速开始</a>
-    <a class="gm-sidebar-item">安装指南</a>
+    <a class="gm-sidebar-item gm-sidebar-item-active">概览</a>
+    <a class="gm-sidebar-item">安装</a>
   </div>
   <div class="gm-sidebar-section">
     <div class="gm-sidebar-heading">组件</div>
-    <a class="gm-sidebar-item">Button 按钮</a>
-    <a class="gm-sidebar-item">Card 卡片</a>
-    <a class="gm-sidebar-item">Form 表单</a>
+    <a class="gm-sidebar-item">按钮</a>
+    <a class="gm-sidebar-item">卡片</a>
   </div>
 </aside>
 ```

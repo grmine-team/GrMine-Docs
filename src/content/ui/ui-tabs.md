@@ -4,6 +4,19 @@
 
 ## 基础用法
 
+<div class="gm-example">
+  <div class="gm-tabs">
+    <div class="gm-tabs-list">
+      <button class="gm-tab gm-tab-active">概览</button>
+      <button class="gm-tab">详情</button>
+      <button class="gm-tab">设置</button>
+    </div>
+    <div class="gm-tab-panel">
+      当前标签页的内容
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="gm-tabs">
   <div class="gm-tabs-list">
@@ -11,10 +24,23 @@
     <button class="gm-tab">详情</button>
     <button class="gm-tab">设置</button>
   </div>
+  <div class="gm-tab-panel">
+    当前标签页的内容
+  </div>
 </div>
 ```
 
 ## 胶囊样式
+
+<div class="gm-example">
+  <div class="gm-tabs gm-tabs-pills">
+    <div class="gm-tabs-list">
+      <button class="gm-tab gm-tab-active">日</button>
+      <button class="gm-tab">周</button>
+      <button class="gm-tab">月</button>
+    </div>
+  </div>
+</div>
 
 ```html
 <div class="gm-tabs gm-tabs-pills">

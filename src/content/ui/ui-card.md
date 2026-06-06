@@ -4,52 +4,80 @@
 
 ## 基础用法
 
-```html
-<div class="gm-card">
-  <div class="gm-card-body">
-    这是一个基础卡片，仅包含内容区域。
+<div class="gm-example">
+  <div class="gm-card" style="max-width:320px">
+    <div class="gm-card-header">
+      <h3 class="gm-card-title">卡片标题</h3>
+      <p class="gm-card-desc">辅助说明文字</p>
+    </div>
+    <div class="gm-card-body">
+      卡片正文内容区域，可以放置任意内容。
+    </div>
   </div>
 </div>
-```
-
-## 带标题和描述
 
 ```html
 <div class="gm-card">
   <div class="gm-card-header">
-    <div class="gm-card-title">卡片标题</div>
-    <div class="gm-card-desc">辅助说明文字</div>
+    <h3 class="gm-card-title">卡片标题</h3>
+    <p class="gm-card-desc">辅助说明文字</p>
   </div>
   <div class="gm-card-body">
-    卡片正文内容区域，可以放置任意内容。
+    卡片正文内容区域。
   </div>
 </div>
 ```
 
 ## 带操作区
 
+<div class="gm-example">
+  <div class="gm-card" style="max-width:320px">
+    <div class="gm-card-header">
+      <h3 class="gm-card-title">确认提交</h3>
+    </div>
+    <div class="gm-card-body">
+      确定要提交当前表单数据吗？
+    </div>
+    <hr class="gm-card-separator" />
+    <div class="gm-card-footer">
+      <button class="gm-btn gm-btn-ghost">取消</button>
+      <button class="gm-btn gm-btn-primary">确认</button>
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="gm-card">
   <div class="gm-card-header">
-    <div class="gm-card-title">确认操作</div>
+    <h3 class="gm-card-title">确认提交</h3>
   </div>
   <div class="gm-card-body">
-    确定要执行此操作吗？此操作不可撤销。
+    确定要提交当前表单数据吗？
   </div>
   <hr class="gm-card-separator" />
   <div class="gm-card-footer">
-    <button class="gm-btn gm-btn-sm gm-btn-ghost">取消</button>
-    <button class="gm-btn gm-btn-sm gm-btn-primary">确认</button>
+    <button class="gm-btn gm-btn-ghost">取消</button>
+    <button class="gm-btn gm-btn-primary">确认</button>
   </div>
 </div>
 ```
 
 ## 可交互卡片
 
+<div class="gm-example">
+  <div class="gm-card gm-card-interactive" style="max-width:280px">
+    <div class="gm-card-body">
+      <h3 class="gm-card-title">可点击卡片</h3>
+      <p class="gm-card-desc">悬停时显示阴影与位移效果</p>
+    </div>
+  </div>
+</div>
+
 ```html
 <div class="gm-card gm-card-interactive">
   <div class="gm-card-body">
-    悬停此卡片查看交互效果，适合用作可点击的列表项。
+    <h3 class="gm-card-title">可点击卡片</h3>
+    <p class="gm-card-desc">悬停时显示阴影与位移效果</p>
   </div>
 </div>
 ```

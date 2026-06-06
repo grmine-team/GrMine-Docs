@@ -4,11 +4,29 @@
 
 ## 基础用法
 
+<div class="gm-example" style="padding:0;background:var(--gm-bg-muted)">
+  <div class="gm-modal" style="position:relative;max-width:100%;animation:none">
+    <div class="gm-modal-header">
+      <h3 class="gm-modal-title">确认操作</h3>
+      <button class="gm-modal-close">×</button>
+    </div>
+    <div class="gm-modal-body">
+      确定要删除此项目吗？此操作不可撤销。
+    </div>
+    <div class="gm-modal-footer">
+      <button class="gm-btn gm-btn-ghost">取消</button>
+      <button class="gm-btn gm-btn-danger">删除</button>
+    </div>
+  </div>
+</div>
+
 ```html
+<!-- 遮罩层 -->
 <div class="gm-modal-overlay">
+  <!-- 对话框 -->
   <div class="gm-modal">
     <div class="gm-modal-header">
-      <span class="gm-modal-title">确认操作</span>
+      <h3 class="gm-modal-title">确认操作</h3>
       <button class="gm-modal-close">×</button>
     </div>
     <div class="gm-modal-body">
@@ -38,7 +56,7 @@
 
 - 显示/隐藏需通过 JavaScript 控制类名或属性
 - 点击遮罩层关闭是常见交互模式
-- 打开模态框时应锁定页面滚动
+- 打开模态框时应锁定页面滚动（`document.body.style.overflow = 'hidden'`）
 
 ## 暗色模式
 

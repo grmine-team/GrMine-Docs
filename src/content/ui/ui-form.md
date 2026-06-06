@@ -2,24 +2,19 @@
 
 表单组件用于收集用户输入，包含输入框、选择器、复选框等元素。
 
-## 输入框
+## 基础用法
 
-```html
-<input class="gm-input" type="text" placeholder="请输入用户名" />
-<input class="gm-input gm-input-sm" placeholder="小尺寸" />
-<input class="gm-input gm-input-lg" placeholder="大尺寸" />
-<input class="gm-input gm-input-error" placeholder="错误状态" />
-<input class="gm-input" disabled placeholder="禁用状态" />
-```
-
-## 输入框尺寸
-
-| 修饰符 | 说明 |
-|--------|------|
-| `gm-input-sm` | 小尺寸输入框 |
-| `gm-input-lg` | 大尺寸输入框 |
-
-## 标签与提示
+<div class="gm-example">
+  <div class="gm-form-group">
+    <label class="gm-label">用户名</label>
+    <input class="gm-input" type="text" placeholder="请输入用户名" />
+  </div>
+  <div class="gm-form-group">
+    <label class="gm-label">密码</label>
+    <input class="gm-input" type="password" placeholder="请输入密码" />
+  </div>
+  <button class="gm-btn gm-btn-primary" type="submit">提交</button>
+</div>
 
 ```html
 <div class="gm-form-group">
@@ -27,92 +22,114 @@
   <input class="gm-input" type="text" placeholder="请输入用户名" />
 </div>
 <div class="gm-form-group">
-  <label class="gm-label gm-label-required">邮箱</label>
-  <input class="gm-input gm-input-error" type="email" placeholder="请输入邮箱" />
+  <label class="gm-label">密码</label>
+  <input class="gm-input" type="password" placeholder="请输入密码" />
+</div>
+<button class="gm-btn gm-btn-primary" type="submit">提交</button>
+```
+
+## 输入框变体
+
+<div class="gm-example">
+  <input class="gm-input" placeholder="默认输入框" />
+  <input class="gm-input gm-input-sm" placeholder="小尺寸" />
+  <input class="gm-input gm-input-lg" placeholder="大尺寸" />
+  <input class="gm-input gm-input-error" placeholder="错误状态" />
+  <input class="gm-input" disabled placeholder="禁用状态" />
+</div>
+
+```html
+<input class="gm-input" placeholder="默认输入框" />
+<input class="gm-input gm-input-sm" placeholder="小尺寸" />
+<input class="gm-input gm-input-lg" placeholder="大尺寸" />
+<input class="gm-input gm-input-error" placeholder="错误状态" />
+<input class="gm-input" disabled placeholder="禁用状态" />
+```
+
+## 辅助文字与错误提示
+
+<div class="gm-example">
+  <div class="gm-form-group">
+    <label class="gm-label">邮箱</label>
+    <input class="gm-input gm-input-error" type="email" placeholder="example@mail.com" />
+    <span class="gm-error-text">请输入有效的邮箱地址</span>
+  </div>
+  <div class="gm-form-group">
+    <label class="gm-label">昵称</label>
+    <input class="gm-input" type="text" placeholder="请输入昵称" />
+    <span class="gm-hint">2-20 个字符</span>
+  </div>
+</div>
+
+```html
+<div class="gm-form-group">
+  <label class="gm-label">邮箱</label>
+  <input class="gm-input gm-input-error" type="email" />
   <span class="gm-error-text">请输入有效的邮箱地址</span>
 </div>
 <div class="gm-form-group">
-  <label class="gm-label">备注</label>
-  <textarea class="gm-textarea" placeholder="请输入备注"></textarea>
-  <span class="gm-hint">最多 200 字</span>
+  <label class="gm-label">昵称</label>
+  <input class="gm-input" type="text" />
+  <span class="gm-hint">2-20 个字符</span>
 </div>
 ```
 
-## 选择器
+## 选择控件
+
+<div class="gm-example">
+  <select class="gm-select">
+    <option>选项一</option>
+    <option>选项二</option>
+    <option>选项三</option>
+  </select>
+  <label class="gm-checkbox"><input type="checkbox" checked /><span>同意条款</span></label>
+  <label class="gm-radio"><input type="radio" name="opt" checked /><span>选项 A</span></label>
+  <label class="gm-radio"><input type="radio" name="opt" /><span>选项 B</span></label>
+  <label class="gm-switch"><input type="checkbox" checked /><span>启用通知</span></label>
+</div>
 
 ```html
 <select class="gm-select">
-  <option>请选择</option>
   <option>选项一</option>
   <option>选项二</option>
 </select>
-<select class="gm-select gm-select-sm">
-  <option>小尺寸选择器</option>
-</select>
-```
 
-## 复选框与单选
-
-```html
 <label class="gm-checkbox">
   <input type="checkbox" checked />
   <span>同意条款</span>
 </label>
-<label class="gm-checkbox">
-  <input type="checkbox" />
-  <span>订阅通知</span>
-</label>
-<label class="gm-radio">
-  <input type="radio" name="color" checked />
-  <span>蓝色</span>
-</label>
-<label class="gm-radio">
-  <input type="radio" name="color" />
-  <span>绿色</span>
-</label>
-```
 
-## 开关
+<label class="gm-radio">
+  <input type="radio" name="opt" checked />
+  <span>选项 A</span>
+</label>
 
-```html
 <label class="gm-switch">
   <input type="checkbox" checked />
   <span>启用通知</span>
 </label>
-<label class="gm-switch">
-  <input type="checkbox" />
-  <span>自动保存</span>
-</label>
+```
+
+## 文本域
+
+<div class="gm-example">
+  <textarea class="gm-textarea" placeholder="请输入内容..."></textarea>
+</div>
+
+```html
+<textarea class="gm-textarea" placeholder="请输入内容..."></textarea>
 ```
 
 ## 表单布局
 
-```html
-<div class="gm-form-group">
-  <label class="gm-label">姓名</label>
-  <input class="gm-input" placeholder="请输入姓名" />
-</div>
-<div class="gm-form-row">
-  <div class="gm-form-group">
-    <label class="gm-label">姓</label>
-    <input class="gm-input" placeholder="姓" />
-  </div>
-  <div class="gm-form-group">
-    <label class="gm-label">名</label>
-    <input class="gm-input" placeholder="名" />
-  </div>
-</div>
-```
-
 | 类名 | 说明 |
 |------|------|
 | `gm-form-group` | 表单组，包含标签与输入 |
-| `gm-form-row` | 行内表单布局 |
+| `gm-form-row` | 行内表单布局，子元素等分 |
 | `gm-label` | 表单标签 |
 | `gm-label-required` | 必填标签（显示红色星号） |
 | `gm-hint` | 辅助提示文字 |
 | `gm-error-text` | 错误提示 |
-| `gm-input-error` | 输入框错误状态 |
 
 ## 暗色模式
 
