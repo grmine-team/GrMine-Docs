@@ -261,7 +261,13 @@
 /* Desktop: sidebar is a sticky flex child */
 .sidebar-wrapper {
   flex-shrink: 0;
+  width: 14rem;
+  height: 100%;
   overflow-y: auto;
+}
+
+.sidebar-wrapper .gm-sidebar {
+  height: 100%;
 }
 
 /* Desktop: hide menu toggle button */

@@ -1,116 +1,80 @@
 # 快速开始
 
-欢迎使用 GrMine OAuth2.0 —— 基于 OAuth2.0 Authorization Code Flow 的统一认证授权系统。
+GrMine OAuth2.0 提供标准的 OAuth2.0 Authorization Code Flow，让你的应用快速接入 GrMine 账号登录。
 
-## 系统架构
-
-GrMine OAuth2.0 由两个核心服务组成：
-
-| 服务 | 技术栈 | 职责 |
-|------|--------|------|
-| **GrLogin** | Flask + MongoDB | 用户登录、注册、授权确认等前端交互 |
-| **GrAuth** | FastAPI (GrAPI 插件) + MongoDB | Token 签发、验证、用户信息接口 |
+## 接入概览
 
 ```
-┌─────────────┐    授权码     ┌─────────────┐    Token     ┌─────────────┐
-│   用户浏览器  │ ──────────→ │   GrLogin    │ ──────────→ │   第三方应用  │
-│             │ ←────────── │  (Flask)     │             │   (Client)   │
-└─────────────┘   登录/确认   └─────────────┘             └──────┬──────┘
-                                                       Token交换│
-                                                       用户信息 │
-                                                              ▼
-                                                       ┌─────────────┐
-                                                       │   GrAuth     │
-                                                       │  (FastAPI)   │
-                                                       └─────────────┘
+你的应用                    GrMine                     用户
+  |                          |                          |
+  |  1. 跳转到授权页面        |                          |
+  | ----------------------> | --> 展示登录页面          |
+  |                          |                          |
+  |                          | <-- 用户登录并授权        |
+  |                          |                          |
+  |  2. 回调携带授权码       |                          |
+  | <----------------------- |                          |
+  |                          |                          |
+  |  3. 用授权码换取 Token    |                          |
+  | ----------------------> |                          |
+  |                          |                          |
+  |  4. 返回 access_token    |                          |
+  | <----------------------- |                          |
+  |                          |                          |
+  |  5. 用 Token 获取用户信息 |                          |
+  | ----------------------> |                          |
+  |                          |                          |
+  |  6. 返回用户资料         |                          |
+  | <----------------------- |                          |
 ```
 
-## 前置要求
+## 前置条件
 
-- Python >= 3.8
-- MongoDB 实例
-- SMTP 邮件服务（用于注册验证、密码重置等）
+- 已在 GrMine 注册你的应用，获取 `client_id` 和 `client_secret`
+- 你的应用有一个可访问的后端服务（用于安全地交换 Token）
 
-## 快速部署
+## 三步接入
 
-### 1. 部署 GrLogin
+### 第一步：引导用户授权
 
-```bash
-cd GrLogin
-pip install -r requirements.txt
+将用户重定向到 GrMine 授权页面：
+
+```
+https://account.grmine.cn/authorize?response_type=code&client_id=你的CLIENT_ID&redirect_uri=你的回调地址&scope=openid profile email&state=随机字符串
 ```
 
-编辑 `config.json`，配置数据库和邮件信息：
+### 第二步：用授权码换取 Token
+
+用户授权后，GrMine 会回调到你的 `redirect_uri` 并携带 `code` 参数。在你的后端用这个 `code` 换取 Token：
+
+```
+POST https://api.grmine.cn/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&code=授权码&client_id=你的CLIENT_ID&client_secret=你的CLIENT_SECRET
+```
+
+### 第三步：获取用户信息
+
+用 `access_token` 调用用户信息接口：
+
+```
+POST https://api.grmine.cn/auth/userinfo
+Authorization: Bearer <access_token>
+```
+
+返回：
 
 ```json
 {
-  "database": {
-    "url": "mongodb://user:pass@host:27017/dbname",
-    "name": "dbname"
-  },
-  "web": {
-    "url": "https://account.example.com/"
-  },
-  "mail": {
-    "server_host": "smtp.qq.com",
-    "server_port": 465,
-    "use_ssl": true,
-    "use_tls": false,
-    "mail_username": "your@email.com",
-    "mail_password": "smtp-auth-password"
-  }
+  "sub": "用户唯一ID",
+  "username": "用户名",
+  "email": "用户邮箱"
 }
-```
-
-启动服务：
-
-```bash
-python main.py
-# 或使用 Gunicorn
-gunicorn -c gunicorn_conf.py main:app
-```
-
-### 2. 部署 GrAuth
-
-```bash
-cd GrAuth
-pip install -r requirements.txt
-```
-
-编辑 `config.json`：
-
-```json
-{
-  "host": "0.0.0.0",
-  "port": 8000,
-  "pip_path": "pip",
-  "title": "GrAPI Server"
-}
-```
-
-编辑 `plugins/GrAuth/config.yml`，配置数据库连接：
-
-```yaml
-database:
-  url: "mongodb://user:pass@host:27017/dbname"
-  database_name: "dbname"
-```
-
-启动服务：
-
-```bash
-python main.py
-```
-
-### 3. 构建并安装 GrAuth 插件
-
-```bash
-cd GrAuth
-python tools/build_plugin.py build ./src -o ./plugins
 ```
 
 ## 下一步
 
-- 阅读 [OAuth2.0 授权流程](oauth2-flow) 了解完整授权流程
-- 阅读 [GrLogin 开发文档](grlogin-overview) 了解登录服务细节
-- 阅读 [GrAuth 开发文档](grauth-overview) 了解认证服务细节
+- 阅读 [授权流程详解](oauth2-flow) 了解每个步骤的完整参数和错误处理
+- 阅读 [API 参考](oauth2-api) 查看所有接口的详细文档
+- 阅读 [接入示例](oauth2-examples) 查看各语言/框架的示例代码
