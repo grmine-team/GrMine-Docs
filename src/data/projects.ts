@@ -41,6 +41,23 @@ export const projects: Project[] = [
       { slug: 'ui-tooltip', title: 'Tooltip 工具提示', category: '组件' },
     ],
   },
+  {
+    id: 'oauth2',
+    name: 'GrMine OAuth2.0',
+    description: '基于 OAuth2.0 Authorization Code Flow 的统一认证授权系统。',
+    icon: 'Shield',
+    tags: ['OAuth2.0', '认证', 'FastAPI', 'Flask'],
+    docs: [
+      { slug: 'oauth2-getting-started', title: '快速开始', category: '入门' },
+      { slug: 'oauth2-flow', title: '授权流程', category: '入门' },
+      { slug: 'grlogin-overview', title: 'GrLogin 概览', category: 'GrLogin' },
+      { slug: 'grlogin-routes', title: '认证路由详解', category: 'GrLogin' },
+      { slug: 'grlogin-services', title: '服务层详解', category: 'GrLogin' },
+      { slug: 'grauth-overview', title: 'GrAuth 概览', category: 'GrAuth' },
+      { slug: 'grauth-endpoints', title: '端点详解', category: 'GrAuth' },
+      { slug: 'grapi-plugin-dev', title: 'GrAPI 插件开发', category: 'GrAuth' },
+    ],
+  },
 ];
 
 export function getProject(id: string): Project | undefined {
